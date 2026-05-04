@@ -37,7 +37,7 @@
         <div class="flex items-center gap-3 cursor-pointer" onclick="showPage('shop')">
             <div
                 class="w-14 h-14 rounded-lg overflow-hidden flex items-center justify-center border border-white/10 bg-white/5">
-                <img src="mascot.png" alt="Logo" id="logo" class="w-full h-full object-cover">
+                <img src="/mascot.png" alt="Logo" id="logo" class="w-full h-full object-cover">
             </div>
             <h1 class="text-2xl font-extrabold tracking-tight">ARTTEOLOGY</h1>
         </div>
@@ -80,11 +80,11 @@
                     <div class="relative w-full rounded-3xl border border-white/10 shadow-2xl overflow-hidden">
 
                         <!-- Banner 1 (Mascot Utama - Menentukan Ukuran Kontainer) -->
-                        <img id="banner-1" src="mascot-banner.png" alt="Artteology Banner 1"
+                        <img id="banner-1" src="/mascot-banner.png" alt="Artteology Banner 1"
                             class="relative w-full transition-opacity duration-1000 opacity-100 object-cover">
 
                         <!-- Banner 2 (Menumpuk di Atas) -->
-                        <img id="banner-2" src="mascot-banner2.png" alt="Artteology Banner 2"
+                        <img id="banner-2" src="/mascot-banner2.png" alt="Artteology Banner 2"
                             class="absolute inset-0 w-full h-full transition-opacity duration-1000 opacity-0 object-cover">
 
                     </div>
