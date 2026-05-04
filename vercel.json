@@ -1,10 +1,17 @@
 {
   "functions": {
-    "api/index.php": {
+    "api/*.php": {
       "runtime": "vercel-php@0.7.1"
     }
   },
   "routes": [
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/uploads_handler",
+      "dest": "/api/uploads_handler.php"
+    },
     {
       "src": "/(.*)",
       "dest": "/api/index.php"
