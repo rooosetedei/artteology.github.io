@@ -4,7 +4,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artteology - Official Store & Codex</title>
+    <title>Artteology - Official Store & Codex | Merchandise Ilustrasi Eksklusif</title>
+
+    <!-- ── SEO ── -->
+    <meta name="description" content="Artteology adalah toko merchandise ilustrasi eksklusif dengan desain karakter original berkualitas premium. Temukan gantungan kunci, stiker, dan koleksi seni unik.">
+    <meta name="keywords" content="artteology, merchandise, ilustrasi, gantungan kunci, stiker, karakter, desain eksklusif, merch original">
+    <meta name="author" content="Artteology">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://artteology.com/">
+
+    <!-- ── Open Graph (Media Sosial) ── -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://artteology.com/">
+    <meta property="og:title" content="Artteology - Official Store & Codex">
+    <meta property="og:description" content="Merchandise ilustrasi eksklusif dengan desain karakter original berkualitas premium. Stok terbatas setiap musimnya.">
+    <meta property="og:image" content="https://artteology.com/mascot-banner.png">
+    <meta property="og:locale" content="id_ID">
+    <meta property="og:site_name" content="Artteology">
+
+    <!-- ── Twitter Card ── -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Artteology - Official Store & Codex">
+    <meta name="twitter:description" content="Merchandise ilustrasi eksklusif dengan desain karakter original berkualitas premium.">
+    <meta name="twitter:image" content="https://artteology.com/mascot-banner.png">
+
+    <!-- ── Performance: Preconnect ── -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+
+    <!-- ── Structured Data (JSON-LD) ── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Store",
+      "name": "Artteology",
+      "description": "Toko merchandise ilustrasi eksklusif dengan desain karakter original berkualitas premium.",
+      "url": "https://artteology.com/",
+      "logo": "https://artteology.com/mascot.png",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "availableLanguage": "Indonesian"
+      }
+    }
+    </script>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .glass-ui {
@@ -34,16 +78,16 @@
 
     <!-- NAVBAR -->
     <nav class="glass-ui sticky top-0 z-50 px-4 md:px-8 py-4 flex justify-between items-center shadow-2xl">
-        <div class="flex items-center gap-3 cursor-pointer" onclick="showPage('shop')">
+        <div class="flex items-center gap-3 cursor-pointer" onclick="showPage('shop')" role="button" aria-label="Kembali ke halaman utama Artteology">
             <div
                 class="w-14 h-14 rounded-lg overflow-hidden flex items-center justify-center border border-white/10 bg-white/5">
-                <img src="../mascot.png" alt="Logo" id="logo" class="w-full h-full object-cover">
+                <img src="../mascot.png" alt="Artteology Logo" id="logo" class="w-full h-full object-cover" width="56" height="56" fetchpriority="high">
             </div>
             <h1 class="text-2xl font-extrabold tracking-tight">ARTTEOLOGY</h1>
         </div>
         <div class="flex gap-4 items-center">
             <button onclick="showPage('shop')"
-                class="text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-white transition">Shop</button>
+                class="text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-white transition" aria-label="Ke halaman Shop">Shop</button>
 
         </div>
     </nav>
@@ -65,7 +109,7 @@
                         Menghadirkan desain karakter menarik dan original dengan kualitas premium. Stok terbatas setiap
                         musimnya.
                     </p>
-                    <button onclick="document.getElementById('category-tabs').scrollIntoView({behavior: 'smooth'})"
+                    <button onclick="document.getElementById('category-tabs').scrollIntoView({behavior: 'smooth'})" aria-label="Gulir ke daftar semua produk"
                         class="bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-xl font-bold transition shadow-lg shadow-blue-500/20">
                         Lihat Semua Produk
                     </button>
@@ -80,12 +124,12 @@
                     <div class="relative w-full rounded-3xl border border-white/10 shadow-2xl overflow-hidden">
 
                         <!-- Banner 1 (Mascot Utama - Menentukan Ukuran Kontainer) -->
-                        <img id="banner-1" src="../mascot-banner.png" alt="Artteology Banner 1"
-                            class="relative w-full transition-opacity duration-1000 opacity-100 object-cover">
+                        <img id="banner-1" src="../mascot-banner.png" alt="Banner Artteology — Koleksi Merchandise Ilustrasi"
+                            class="relative w-full transition-opacity duration-1000 opacity-100 object-cover" fetchpriority="high" width="800" height="600">
 
                         <!-- Banner 2 (Menumpuk di Atas) -->
-                        <img id="banner-2" src="../mascot-banner2.png" alt="Artteology Banner 2"
-                            class="absolute inset-0 w-full h-full transition-opacity duration-1000 opacity-0 object-cover">
+                        <img id="banner-2" src="../mascot-banner2.png" alt="Banner Artteology — Koleksi Seri Terbaru"
+                            class="absolute inset-0 w-full h-full transition-opacity duration-1000 opacity-0 object-cover" loading="lazy" width="800" height="600">
 
                     </div>
                 </div>
@@ -149,6 +193,12 @@
         <!-- 2. HALAMAN CODEX (LORE & COLLECTION)       -->
         <!-- ========================================== -->
         <section id="codex-page" class="hidden max-w-7xl mx-auto px-4 md:px-8 py-10 pb-24">
+            <div class="mb-8">
+                <button onclick="showPage('shop')" class="flex items-center gap-2 text-xs font-black uppercase tracking-widest text-slate-400 hover:text-white transition" aria-label="Kembali ke halaman toko">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                    Kembali ke Toko
+                </button>
+            </div>
             <div class="text-center mb-16">
                 <h2 class="text-4xl font-black italic tracking-tighter mb-4">THE CODEX</h2>
                 <p class="text-slate-400 text-sm tracking-[0.3em] uppercase">Menelusuri asal usul setiap entitas di
@@ -188,7 +238,7 @@
                     <p class="text-slate-400 text-sm mt-1">Manajemen Produk dan Lore Arsip</p>
                 </div>
                 <button onclick="logoutAdmin()"
-                    class="text-[10px] font-black uppercase tracking-widest px-6 py-3 bg-red-500/10 text-red-500 rounded-xl hover:bg-red-500 hover:text-white transition">Keluar</button>
+                    class="text-[10px] font-black uppercase tracking-widest px-6 py-3 bg-red-500/10 text-red-500 rounded-xl hover:bg-red-500 hover:text-white transition" aria-label="Keluar dari panel admin">Keluar</button>
             </div>
 
             <!-- Bagian 1: Manajemen Produk -->
@@ -272,7 +322,7 @@
         class="fixed inset-0 z-[99] hidden items-center justify-center p-4 bg-black/90 backdrop-blur-sm">
         <div class="glass-ui max-w-2xl w-full rounded-3xl overflow-hidden relative border border-white/10 shadow-2xl">
             <button onclick="closeDetail()"
-                class="absolute top-4 right-4 text-white/50 hover:text-white z-10 bg-black/50 p-2 rounded-full">
+                class="absolute top-4 right-4 text-white/50 hover:text-white z-10 bg-black/50 p-2 rounded-full" aria-label="Tutup detail produk">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2">
                     <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -281,7 +331,7 @@
             </button>
             <div class="grid md:grid-cols-2 h-full">
                 <div class="h-64 md:h-full bg-zinc-900">
-                    <img id="modal-img" src="" class="w-full h-full object-cover">
+                    <img id="modal-img" src="" class="w-full h-full object-cover" alt="Foto produk" width="400" height="400">
                 </div>
                 <div class="p-8 flex flex-col justify-center">
                     <span id="modal-cat"
@@ -297,10 +347,10 @@
     </div>
 
     <div id="lore-modal"
-        class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-black/95 backdrop-blur-md">
-        <div class="max-w-4xl w-full grid md:grid-cols-2 gap-8 md:gap-12 relative">
-            <div class="relative aspect-square rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
-                <img id="lore-img" src="" class="w-full h-full object-cover">
+        class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-black/95 backdrop-blur-md overflow-y-auto">
+        <div class="max-w-4xl w-full grid md:grid-cols-2 gap-8 md:gap-12 relative my-auto">
+            <div class="relative aspect-square max-h-[40vh] md:max-h-none rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+                <img id="lore-img" src="" class="w-full h-full object-cover" alt="Ilustrasi karakter" width="500" height="500">
                 <div id="lore-color-glow" class="absolute inset-0 opacity-20 mix-blend-overlay"></div>
             </div>
             <div class="flex flex-col justify-center">
@@ -314,15 +364,26 @@
                     <h4 class="text-[10px] font-black uppercase text-slate-500 tracking-widest">Fakta Tersembunyi</h4>
                     <ul id="lore-facts-list" class="text-sm text-slate-400 space-y-2"></ul>
                 </div>
-                <button onclick="closeLore()"
-                    class="mt-12 w-max text-xs font-black uppercase tracking-widest text-white/40 hover:text-white transition flex items-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2">
-                        <line x1="19" y1="12" x2="5" y2="12"></line>
-                        <polyline points="12 19 5 12 12 5"></polyline>
-                    </svg>
-                    Tutup Arsip
-                </button>
+                <div class="mt-6 md:mt-12 flex items-center gap-6">
+                    <button onclick="closeLore()"
+                        class="w-max text-xs font-black uppercase tracking-widest text-white/40 hover:text-white transition flex items-center gap-2" aria-label="Tutup arsip karakter">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <line x1="19" y1="12" x2="5" y2="12"></line>
+                            <polyline points="12 19 5 12 12 5"></polyline>
+                        </svg>
+                        Tutup Arsip
+                    </button>
+                    <button onclick="closeLore(); showPage('shop')"
+                        class="w-max text-xs font-black uppercase tracking-widest text-blue-500 hover:text-blue-300 transition flex items-center gap-2" aria-label="Tutup arsip dan kembali ke toko">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                        </svg>
+                        Kembali ke Toko
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -417,7 +478,7 @@
                 return `
                     <div class="glass-ui rounded-3xl overflow-hidden group flex flex-col border border-white/5">
                         <div class="h-64 relative overflow-hidden bg-zinc-900 p-4">
-                            <img src="${p.img}" class="w-full h-full object-contain group-hover:scale-110 transition duration-700">
+                            <img src="${p.img}" alt="${p.name} — ${seriesName}" class="w-full h-full object-contain group-hover:scale-110 transition duration-700" loading="lazy" width="256" height="256">
                         </div>
                         <div class="p-6 flex flex-col flex-1 bg-black/40">
                             <div class="mb-5">
@@ -463,7 +524,7 @@
                                 ${seriesChars.map(c => `
                                     <div onclick="openLore(${c.id})" class="cursor-pointer group/item flex flex-col items-center">
                                         <div class="w-full aspect-square rounded-2xl overflow-hidden mb-3 border border-white/10 group-hover/item:border-white/50 transition bg-zinc-900 p-2 relative">
-                                            <img src="${c.img}" class="w-full h-full object-contain grayscale group-hover/item:grayscale-0 transition duration-500">
+                                            <img src="${c.img}" alt="${c.name} — karakter Artteology" class="w-full h-full object-contain grayscale group-hover/item:grayscale-0 transition duration-500" loading="lazy" width="120" height="120">
                                             <div class="absolute inset-0 bg-black/50 group-hover/item:bg-transparent transition"></div>
                                         </div>
                                         <span class="text-[10px] font-black uppercase tracking-widest block text-center opacity-50 group-hover/item:opacity-100 transition">${c.name}</span>
@@ -583,7 +644,7 @@
             container.innerHTML = products.map(p => `
                 <div class="flex items-center justify-between p-4 bg-white/5 rounded-2xl border border-white/10">
                     <div class="flex items-center gap-3">
-                        <img src="${p.img}" class="w-10 h-10 rounded-lg object-cover bg-zinc-800">
+                        <img src="${p.img}" alt="${p.name}" class="w-10 h-10 rounded-lg object-cover bg-zinc-800" loading="lazy" width="40" height="40">
                         <div>
                             <p class="text-xs font-bold text-white uppercase">${p.name}</p>
                             <p class="text-[10px] text-slate-500 uppercase">${p.category}</p>
