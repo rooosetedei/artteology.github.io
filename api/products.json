@@ -2,9 +2,9 @@
   "products": [
     {
       "id": 1,
-      "name": "Melody - keychain",
+      "name": "Melody",
       "price": 15000,
-      "category": "little-pop",
+      "category": "little-pop - keychain",
       "img": "/little-pop-prod/melody.jpg",
       "desc": "Makhluk kecil misterius yang hidup di dalam gelembung air. Melody adalah gelembung polos yang menggemaskan"
     },
@@ -16,22 +16,94 @@
       "img": "/little-pop-prod/piyo.jpg",
       "desc": "Si apel nakal yang lucu. Penampilannya manis tapi suka jail."
     },
-    {
+     {
       "id": 3,
-      "name": "Emora - keychain",
+      "name": "clevora",
       "price": 15000,
-      "category": "elements",
+      "category": "little-pop - keychain",
+      "img": "/elements-prod/clevora.jpg",
+      "desc": "Si semanggi keberuntungan yang selalu ceria. Suka sekali dengan suasana yang sejuk."
+    },
+    {
+      "id": 4,
+      "name": "googly eyes",
+      "price": 15000,
+      "category": "little-pop - keychain",
+      "img": "/elements-prod/googly_eyes.jpg",
+      "desc": "Sederhana tapi selalu memperhatikan. Tidak banyak bicara, tapi tidak ada yang luput dari pandangannya."
+    },
+     {
+      "id": 5,
+      "name": "Monster yeda",
+      "price": 15000,
+      "category": "little-pop - keychain",
+      "img": "/elements-prod/monster_yeda.webp",
+      "desc": " Makhluk berbintang dengan tiga mata yang selalu mengamati sekelilingnya. Terlihat menakutkan, tapi sebenarnya hanya penasaran dengan dunia manusia."
+    },
+     {
+      "id": 6,
+      "name": "miss Alana",
+      "price": 15000,
+      "category": "little-pop - keychain",
+      "img": "/elements-prod/ms_alana.jpg",
+      "desc": "Gadis ceria berambut kepang dua. Dia sangat spesial karena memiliki warna bola mata yang berbeda."
+    },
+     {
+      "id": 7,
+      "name": "miss evelyn",
+      "price": 15000,
+      "category": "little-pop - keychain",
+      "img": "/elements-prod/ms_evelyn.jpg",
+      "desc": "Gadis berambut hitam pendek dengan tatapan yang membuat kita terpanah dengan penampilan nya."
+    }, {
+      "id": 8,
+      "name": "red girl",
+      "price": 15000,
+      "category": "little-pop - keychain",
+      "img": "/elements-prod/red_girl.png",
+      "desc": "Gadis berambut merah yang susah ditebak."
+    },
+
+
+
+
+
+
+    {
+      "id": 9,
+      "name": "Emora",
+      "price": 15000,
+      "category": "elements - keychain",
       "img": "/elements-prod/emora.png",
       "desc": "Dewi cinta yang lembut namun penuh kekuatan. Auranya yang hangat dapat memberikan rasa yang nyaman pada hati."
     },
     {
-      "id": 3,
-      "name": "Debora - keychain",
+      "id": 10,
+      "name": "Debora",
       "price": 15000,
-      "category": "elements",
-      "img": "/elements-prod/emora.png",
+      "category": "elements - keychain",
+      "img": "/elements-prod/debora.png",
       "desc": " Dewi alam yang tenang. Kehadirannya seperti angin sejuk yang menyentuh."
+    },
+    {
+      "id": 11,
+      "name": "Cosmica",
+      "price": 15000,
+      "category": "elements - keychain",
+      "img": "/elements-prod/comisca.png",
+      "desc": " Penjaga keseimbangan antara cahaya dan kegelapan. Matahari dan bulan selalu berdampingan untuk menjaga keseimbangan semesta."
+    },
+    {
+      "id": 12,
+      "name": "Sonata",
+      "price": 15000,
+      "category": "elements - keychain",
+      "img": "/elements-prod/sonata.png",
+      "desc": "Dewi bulan yang anggun dan misterius. Cahayanya memandu mereka yang tersesat di kegelapan malam."
     }
+
+
+
   ],
   "series": [
     {
@@ -51,7 +123,10 @@
     {
       "charId": 1,
       "story": "Dilahirkan dari pecahan kepingan lagu yang tak pernah selesai. Melody berkelana untuk mengumpulkan nada-nada yang hilang di semesta.",
-      "facts": ["Takut akan kesunyian", "Bisa mengubah awan menjadi permen kapas"]
+      "facts": [
+        "Takut akan kesunyian",
+        "Bisa mengubah awan menjadi permen kapas"
+      ]
     },
     {
       "charId": 3,
