@@ -11,11 +11,11 @@
     <meta name="keywords" content="artteology, merchandise, ilustrasi, gantungan kunci, stiker, karakter, desain eksklusif, merch original">
     <meta name="author" content="Artteology">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://artteology.com/">
+    <link rel="canonical" href="https://artteology.my.id/">
 
     <!-- ── Open Graph (Media Sosial) ── -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://artteology.com/">
+    <meta property="og:url" content="https://artteology.my.id/">
     <meta property="og:title" content="Artteology - Official Store & Codex">
     <meta property="og:description" content="Merchandise ilustrasi eksklusif dengan desain karakter original berkualitas premium. Stok terbatas setiap musimnya.">
     <meta property="og:image" content="https://artteology.com/mascot-banner.png">
