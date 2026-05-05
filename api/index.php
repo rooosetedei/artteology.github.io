@@ -331,7 +331,7 @@
     <script>
         // ── DATA DARI SERVER (products.json via PHP) ─────────────
         <?php
-        $db_file = __DIR__ . '/api/products.json';
+        $db_file = __DIR__ . '/products.json';
         $db = file_exists($db_file)
             ? json_decode(file_get_contents($db_file), true)
             : ['products' => [], 'series' => [], 'lore' => []];
