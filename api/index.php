@@ -526,7 +526,7 @@
         }
 
         function loginAdmin() {
-            if (document.getElementById('admin-pass').value === 'admin123') {
+            if (document.getElementById('admin-pass').value === 'Tempepenyet1@') {
                 showPage('admin');
                 document.getElementById('admin-pass').value = '';
             } else {
