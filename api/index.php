@@ -118,7 +118,7 @@
                         </p>
                     </div>
                     <div class="flex-shrink-0">
-                        <a href="https://wa.me/6287754107704?text=Halo%20Artteology!%20Saya%20ingin%20konsultasi%20desain%20%F0%9F%8E%A8%0A%0ATolong%20ceritakan%20kebutuhan%20desain%20Anda..."
+                        <a href="https://wa.me/6287754107704?text=Halo%20Artteology!%20Saya%20ingin%20konsultasi%20desain%20%F0%9F%8E%A8%0A%0ATolong%20(ceritakan%20kebutuhan%20desain%20Anda disini)"
                             target="_blank"
                             class="flex items-center gap-3 px-8 py-4 rounded-2xl bg-blue-600 hover:bg-blue-500 text-white font-black text-sm uppercase tracking-widest transition shadow-xl shadow-blue-500/25 whitespace-nowrap">
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
@@ -607,7 +607,7 @@
             renderAdminProducts(); // Tambahkan baris ini
         }
 
-       
+
         function saveSeriesAdmin() {
             const id = document.getElementById('admin-series-id').value;
             const name = document.getElementById('admin-series-name').value;
