@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://artteology.com/sitemap.xml
+Sitemap: https://artteology.my.id/sitemap.xml

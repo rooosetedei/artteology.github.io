@@ -18,7 +18,7 @@
     <meta property="og:url" content="https://artteology.my.id/">
     <meta property="og:title" content="Artteology - Official Store & Codex">
     <meta property="og:description" content="Merchandise ilustrasi eksklusif dengan desain karakter original berkualitas premium. Stok terbatas setiap musimnya.">
-    <meta property="og:image" content="https://artteology.com/mascot-banner.png">
+    <meta property="og:image" content="https://artteology.my.id/mascot-banner.png">
     <meta property="og:locale" content="id_ID">
     <meta property="og:site_name" content="Artteology">
 
@@ -26,7 +26,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Artteology - Official Store & Codex">
     <meta name="twitter:description" content="Merchandise ilustrasi eksklusif dengan desain karakter original berkualitas premium.">
-    <meta name="twitter:image" content="https://artteology.com/mascot-banner.png">
+    <meta name="twitter:image" content="https://artteology.my.id/mascot-banner.png">
 
     <!-- ── Performance: Preconnect ── -->
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
@@ -39,8 +39,8 @@
       "@type": "Store",
       "name": "Artteology",
       "description": "Toko merchandise ilustrasi eksklusif dengan desain karakter original berkualitas premium.",
-      "url": "https://artteology.com/",
-      "logo": "https://artteology.com/mascot.png",
+      "url": "https://artteology.my.id/",
+      "logo": "https://artteology.my.id/mascot.png",
       "contactPoint": {
         "@type": "ContactPoint",
         "contactType": "customer service",
