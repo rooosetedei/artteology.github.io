@@ -37,7 +37,7 @@
         <div class="flex items-center gap-3 cursor-pointer" onclick="showPage('shop')">
             <div
                 class="w-14 h-14 rounded-lg overflow-hidden flex items-center justify-center border border-white/10 bg-white/5">
-                <img src="/mascot.png" alt="Logo" id="logo" class="w-full h-full object-cover">
+                <img src="../mascot.png" alt="Logo" id="logo" class="w-full h-full object-cover">
             </div>
             <h1 class="text-2xl font-extrabold tracking-tight">ARTTEOLOGY</h1>
         </div>
@@ -80,11 +80,11 @@
                     <div class="relative w-full rounded-3xl border border-white/10 shadow-2xl overflow-hidden">
 
                         <!-- Banner 1 (Mascot Utama - Menentukan Ukuran Kontainer) -->
-                        <img id="banner-1" src="/mascot-banner.png" alt="Artteology Banner 1"
+                        <img id="banner-1" src="../mascot-banner.png" alt="Artteology Banner 1"
                             class="relative w-full transition-opacity duration-1000 opacity-100 object-cover">
 
                         <!-- Banner 2 (Menumpuk di Atas) -->
-                        <img id="banner-2" src="/mascot-banner2.png" alt="Artteology Banner 2"
+                        <img id="banner-2" src="../mascot-banner2.png" alt="Artteology Banner 2"
                             class="absolute inset-0 w-full h-full transition-opacity duration-1000 opacity-0 object-cover">
 
                     </div>
@@ -329,21 +329,16 @@
 
     <!-- LOGIKA JAVASCRIPT -->
     <script>
-        let products = JSON.parse(localStorage.getItem('arteology_products')) || [
-            { id: 1, name: 'Melody', price: 15000, category: 'little-pop', img: 'https://via.placeholder.com/400x400/111/fff?text=Melody', desc: 'Gantungan kunci akrilik karakter Melody. Cocok untuk tas dan kunci.' },
-            { id: 2, name: 'Piyo', price: 15000, category: 'little-pop', img: 'https://via.placeholder.com/400x400/222/fff?text=Piyo', desc: 'Gantungan kunci Piyo si buah manis.' },
-            { id: 3, name: 'Emora', price: 15000, category: 'elements', img: 'https://via.placeholder.com/400x400/333/fff?text=Emora', desc: 'Karakter elemen bunga yang elegan.' }
-        ];
-
-        let seriesData = JSON.parse(localStorage.getItem('arteology_series')) || [
-            { id: 'little-pop', name: 'Little Pop', philosophy: 'Manifestasi dari keceriaan yang hilang di dunia orang dewasa. Setiap karakter mewakili satu emosi positif yang tulus.', color: '#ff4d6d' },
-            { id: 'elements', name: 'The Elements', philosophy: 'Kekuatan purba yang menyeimbangkan alam semesta Artteology. Tanpa mereka, warna akan pudar dari dunia.', color: '#4cc9f0' }
-        ];
-
-        let loreData = JSON.parse(localStorage.getItem('arteology_lore')) || [
-            { charId: 1, story: 'Dilahirkan dari pecahan kepingan lagu yang tak pernah selesai. Melody berkelana untuk mengumpulkan nada-nada yang hilang di semesta.', facts: ['Takut akan kesunyian', 'Bisa mengubah awan menjadi permen kapas'] },
-            { charId: 3, story: 'Roh pelindung taman abadi. Kelopaknya dipercaya mampu menyembuhkan memori buruk yang merusak jiwa manusia.', facts: ['Aromanya berubah sesuai emosi penatapnya'] }
-        ];
+        // ── DATA DARI SERVER (products.json via PHP) ─────────────
+        <?php
+        $db_file = __DIR__ . '/api/products.json';
+        $db = file_exists($db_file)
+            ? json_decode(file_get_contents($db_file), true)
+            : ['products' => [], 'series' => [], 'lore' => []];
+        echo 'let products   = ' . json_encode($db['products'] ?? [], JSON_UNESCAPED_UNICODE) . ';';
+        echo 'let seriesData = ' . json_encode($db['series'] ?? [], JSON_UNESCAPED_UNICODE) . ';';
+        echo 'let loreData   = ' . json_encode($db['lore'] ?? [], JSON_UNESCAPED_UNICODE) . ';';
+        ?>
 
         // --- CEK AKSES RAHASIA ADMIN ---
         window.addEventListener('load', checkSecretAccess);
@@ -540,30 +535,44 @@
         }
 
         function addProduct() {
-            const id = Date.now();
-            const name = document.getElementById('prod-name').value;
+            const name = document.getElementById('prod-name').value.trim();
             const price = document.getElementById('prod-price').value;
-            const category = document.getElementById('prod-cat').value.toLowerCase();
-            const img = document.getElementById('prod-img').value;
-            const desc = document.getElementById('prod-desc').value;
+            const category = document.getElementById('prod-cat').value.trim().toLowerCase();
+            const img = document.getElementById('prod-img').value.trim();
+            const desc = document.getElementById('prod-desc').value.trim();
 
             if (!name || !price || !category) return alert("Lengkapi data penting!");
 
-            products.push({ id, name, price: parseInt(price), category, img, desc });
-            localStorage.setItem('arteology_products', JSON.stringify(products));
+            const formData = new FormData();
+            formData.append('action', 'add_product');
+            formData.append('name', name);
+            formData.append('price', price);
+            formData.append('category', category);
+            formData.append('img', img);
+            formData.append('desc', desc);
 
-            if (!seriesData.find(s => s.id === category)) {
-                seriesData.push({ id: category, name: category.toUpperCase(), philosophy: 'Filosofi belum ditentukan.', color: '#444' });
-                localStorage.setItem('arteology_series', JSON.stringify(seriesData));
-            }
-
-            alert('Produk Berhasil Ditambahkan!');
-            document.getElementById('prod-name').value = '';
-            document.getElementById('prod-price').value = '';
-            document.getElementById('prod-img').value = '';
-            document.getElementById('prod-desc').value = '';
-
-            updateAdminSelects();
+            fetch('/api/save_data.php', { method: 'POST', body: formData })
+                .then(r => r.json())
+                .then(res => {
+                    if (res.status === 'success') {
+                        // Update data lokal agar langsung tampil tanpa reload
+                        const newProduct = { id: res.id, name, price: parseInt(price), category, img, desc };
+                        products.push(newProduct);
+                        if (!seriesData.find(s => s.id === category)) {
+                            seriesData.push({ id: category, name: category.toUpperCase(), philosophy: 'Filosofi belum ditentukan.', color: '#888888' });
+                        }
+                        alert(res.message);
+                        document.getElementById('prod-name').value = '';
+                        document.getElementById('prod-price').value = '';
+                        document.getElementById('prod-img').value = '';
+                        document.getElementById('prod-desc').value = '';
+                        updateAdminSelects();
+                        initShop();
+                    } else {
+                        alert('Error: ' + res.message);
+                    }
+                })
+                .catch(() => alert('Gagal terhubung ke server.'));
         }
 
         // Tambahkan fungsi ini di dalam script Anda
@@ -589,14 +598,24 @@
 
         function deleteProduct(id) {
             if (confirm("Hapus produk ini secara permanen dari database?")) {
-                products = products.filter(p => p.id !== id);
-                localStorage.setItem('arteology_products', JSON.stringify(products));
+                const formData = new FormData();
+                formData.append('action', 'delete_product');
+                formData.append('id', id);
 
-                // Refresh tampilan
-                renderAdminProducts();
-                updateAdminSelects();
-                initShop();
-                alert("Produk berhasil dihapus.");
+                fetch('/api/save_data.php', { method: 'POST', body: formData })
+                    .then(r => r.json())
+                    .then(res => {
+                        if (res.status === 'success') {
+                            products = products.filter(p => p.id !== id);
+                            renderAdminProducts();
+                            updateAdminSelects();
+                            initShop();
+                            alert(res.message);
+                        } else {
+                            alert('Error: ' + res.message);
+                        }
+                    })
+                    .catch(() => alert('Gagal terhubung ke server.'));
             }
         }
 
@@ -609,39 +628,66 @@
 
 
         function saveSeriesAdmin() {
-            const id = document.getElementById('admin-series-id').value;
-            const name = document.getElementById('admin-series-name').value;
-            const color = document.getElementById('admin-series-color').value;
-            const philosophy = document.getElementById('admin-series-phil').value;
+            const id = document.getElementById('admin-series-id').value.trim();
+            const name = document.getElementById('admin-series-name').value.trim();
+            const color = document.getElementById('admin-series-color').value.trim();
+            const philosophy = document.getElementById('admin-series-phil').value.trim();
 
             if (!id || !name) return alert("ID dan Nama Seri harus diisi!");
 
-            const existingIndex = seriesData.findIndex(s => s.id === id);
-            if (existingIndex >= 0) {
-                seriesData[existingIndex] = { id, name, color, philosophy };
-            } else {
-                seriesData.push({ id, name, color, philosophy });
-            }
+            const formData = new FormData();
+            formData.append('action', 'save_series');
+            formData.append('id', id);
+            formData.append('name', name);
+            formData.append('color', color);
+            formData.append('philosophy', philosophy);
 
-            localStorage.setItem('arteology_series', JSON.stringify(seriesData));
-            alert("Seri berhasil disimpan!");
+            fetch('/api/save_data.php', { method: 'POST', body: formData })
+                .then(r => r.json())
+                .then(res => {
+                    if (res.status === 'success') {
+                        const existingIndex = seriesData.findIndex(s => s.id === id);
+                        if (existingIndex >= 0) {
+                            seriesData[existingIndex] = { id, name, color, philosophy };
+                        } else {
+                            seriesData.push({ id, name, color, philosophy });
+                        }
+                        alert(res.message);
+                    } else {
+                        alert('Error: ' + res.message);
+                    }
+                })
+                .catch(() => alert('Gagal terhubung ke server.'));
         }
 
         function saveLoreAdmin() {
             const charId = parseInt(document.getElementById('admin-char-select').value);
-            const story = document.getElementById('admin-char-lore').value;
-            const factsStr = document.getElementById('admin-char-facts').value;
+            const story = document.getElementById('admin-char-lore').value.trim();
+            const factsStr = document.getElementById('admin-char-facts').value.trim();
             const facts = factsStr.split(',').map(f => f.trim()).filter(f => f);
 
-            const existingIndex = loreData.findIndex(l => l.charId === charId);
-            if (existingIndex >= 0) {
-                loreData[existingIndex] = { charId, story, facts };
-            } else {
-                loreData.push({ charId, story, facts });
-            }
+            const formData = new FormData();
+            formData.append('action', 'save_lore');
+            formData.append('charId', charId);
+            formData.append('story', story);
+            formData.append('facts', factsStr);
 
-            localStorage.setItem('arteology_lore', JSON.stringify(loreData));
-            alert("Cerita karakter berhasil disimpan!");
+            fetch('/api/save_data.php', { method: 'POST', body: formData })
+                .then(r => r.json())
+                .then(res => {
+                    if (res.status === 'success') {
+                        const existingIndex = loreData.findIndex(l => l.charId === charId);
+                        if (existingIndex >= 0) {
+                            loreData[existingIndex] = { charId, story, facts };
+                        } else {
+                            loreData.push({ charId, story, facts });
+                        }
+                        alert(res.message);
+                    } else {
+                        alert('Error: ' + res.message);
+                    }
+                })
+                .catch(() => alert('Gagal terhubung ke server.'));
         }
 
         document.addEventListener('DOMContentLoaded', function () {

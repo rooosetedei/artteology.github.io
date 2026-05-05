@@ -1,0 +1,62 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Melody - keychain",
+      "price": 15000,
+      "category": "little-pop",
+      "img": "/little-pop-prod/melody.jpg",
+      "desc": "Makhluk kecil misterius yang hidup di dalam gelembung air. Melody adalah gelembung polos yang menggemaskan"
+    },
+    {
+      "id": 2,
+      "name": "Piyo",
+      "price": 15000,
+      "category": "little-pop - keychain",
+      "img": "/little-pop-prod/piyo.jpg",
+      "desc": "Si apel nakal yang lucu. Penampilannya manis tapi suka jail."
+    },
+    {
+      "id": 3,
+      "name": "Emora - keychain",
+      "price": 15000,
+      "category": "elements",
+      "img": "/elements-prod/emora.png",
+      "desc": "Dewi cinta yang lembut namun penuh kekuatan. Auranya yang hangat dapat memberikan rasa yang nyaman pada hati."
+    },
+    {
+      "id": 3,
+      "name": "Debora - keychain",
+      "price": 15000,
+      "category": "elements",
+      "img": "/elements-prod/emora.png",
+      "desc": " Dewi alam yang tenang. Kehadirannya seperti angin sejuk yang menyentuh."
+    }
+  ],
+  "series": [
+    {
+      "id": "little-pop",
+      "name": "Little Pop",
+      "philosophy": "Manifestasi dari keceriaan yang hilang di dunia orang dewasa. Setiap karakter mewakili satu emosi positif yang tulus.",
+      "color": "#ff4d6d"
+    },
+    {
+      "id": "elements",
+      "name": "The Elements",
+      "philosophy": "Kekuatan purba yang menyeimbangkan alam semesta Artteology. Tanpa mereka, warna akan pudar dari dunia.",
+      "color": "#4cc9f0"
+    }
+  ],
+  "lore": [
+    {
+      "charId": 1,
+      "story": "Dilahirkan dari pecahan kepingan lagu yang tak pernah selesai. Melody berkelana untuk mengumpulkan nada-nada yang hilang di semesta.",
+      "facts": ["Takut akan kesunyian", "Bisa mengubah awan menjadi permen kapas"]
+    },
+    {
+      "charId": 3,
+      "story": "Roh pelindung taman abadi. Kelopaknya dipercaya mampu menyembuhkan memori buruk yang merusak jiwa manusia.",
+      "facts": ["Aromanya berubah sesuai emosi penatapnya"]
+    }
+  ]
+}
